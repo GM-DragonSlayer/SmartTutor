@@ -4,7 +4,7 @@ import { useAuth } from './AuthProvider';
 import { saveQuizResult } from '@/lib/firestore';
 
 export default function QuizCard({ quiz, topic }: { quiz: any; topic?: string }) {
-  const { user } = useAuth();
+  const { user, refreshProfile } = useAuth();
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [showResult, setShowResult] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -40,6 +40,8 @@ export default function QuizCard({ quiz, topic }: { quiz: any; topic?: string })
     try {
       const result = await saveQuizResult(quizData);
       console.log('✅ Quiz result saved successfully:', result.id);
+      // Refresh user profile to update stats
+      await refreshProfile();
     } catch (error) {
       console.error('❌ Failed to save quiz result:', error);
     }

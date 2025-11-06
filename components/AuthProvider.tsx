@@ -11,6 +11,7 @@ interface AuthContextType {
   signIn: (email: string, password: string) => Promise<void>;
   signUp: (email: string, password: string, name: string) => Promise<void>;
   logout: () => Promise<void>;
+  refreshProfile: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -58,8 +59,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     console.log('✅ User logged out successfully');
   };
 
+  const refreshProfile = async () => {
+    if (user) {
+      console.log('🔄 Refreshing user profile for:', user.uid);
+      const profile = await getUserProfile(user.uid);
+      console.log('🔄 User profile refreshed:', profile);
+      setUserProfile(profile);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, userProfile, loading, signIn, signUp, logout }}>
+    <AuthContext.Provider value={{ user, userProfile, loading, signIn, signUp, logout, refreshProfile }}>
       {children}
     </AuthContext.Provider>
   );
