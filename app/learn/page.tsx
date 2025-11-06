@@ -11,7 +11,7 @@ import QuizCard from '@/components/QuizCard';
 
 export default function LearnPage() {
   const router = useRouter();
-  const { user, loading: authLoading } = useAuth();
+  const { user, loading: authLoading, refreshProfile } = useAuth();
   const { learningState, setCurrentTopic, setExplanation, setQuiz, setLoading } = useLearning();
   const { currentTopic, explanation, quiz, loading } = learningState;
 
@@ -67,6 +67,8 @@ export default function LearnPage() {
       try {
         const sessionResult = await saveStudySession(sessionData);
         console.log('✅ Study session saved successfully:', sessionResult.id);
+        // Refresh user profile to update stats
+        await refreshProfile();
       } catch (sessionError) {
         console.error('❌ Failed to save study session:', sessionError);
       }

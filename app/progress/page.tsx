@@ -34,7 +34,7 @@ export default function ProgressPage() {
     };
 
     fetchUserData();
-  }, [user]);
+  }, [user, userProfile]);
 
   // Group topics by subject (simplified categorization)
   const getSubjectFromTopic = (topic: string) => {

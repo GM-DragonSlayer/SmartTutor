@@ -111,7 +111,7 @@ export default function DashboardPage() {
     };
 
     fetchRecentTopics();
-  }, [user]);
+  }, [user, userProfile]);
 
   if (loading) {
     return (
