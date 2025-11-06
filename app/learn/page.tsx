@@ -8,6 +8,7 @@ import Sidebar from '@/components/Sidebar';
 import TopicInput from '@/components/TopicInput';
 import ExplanationCard from '@/components/ExplanationCard';
 import QuizCard from '@/components/QuizCard';
+import { FaBookOpen, FaLightbulb } from 'react-icons/fa';
 
 export default function LearnPage() {
   const router = useRouter();
@@ -90,8 +91,8 @@ export default function LearnPage() {
         <div className="p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-white mb-2">
-              📚 Learn with AI
+            <h1 className="text-3xl font-bold text-white mb-2 flex gap-2 items-center">
+              <FaLightbulb /> Learn with AI
             </h1>
             <p className="text-gray-600">Get personalized explanations and practice with quizzes</p>
           </div>
@@ -116,8 +117,8 @@ export default function LearnPage() {
               <div className="space-y-8">
                 {/* Topic Header */}
                 <div className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-indigo-500">
-                  <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-                    🎯 Learning: <span className="text-indigo-600">{currentTopic}</span>
+                  <h2 className="text-2xl font-bold text-gray-400 flex items-center gap-2">
+                    🎯 Learning: <span className="text-emerald-500">{currentTopic}</span>
                   </h2>
                 </div>
 
@@ -141,10 +142,10 @@ export default function LearnPage() {
             {!loading && !explanation && !quiz && (
               <div className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-12 text-center">
                 <div className="text-6xl mb-4">🚀</div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                <h3 className="text-xl font-semibold text-gray-200 mb-2">
                   Ready to learn something new?
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-400">
                   Enter a topic above to get started with personalized explanations and quizzes.
                 </p>
               </div>
