@@ -71,8 +71,8 @@ export default function QuizCard({ quiz, topic }: { quiz: any; topic?: string })
     <div className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-blue-500 border border-gray-300 dark:border-gray-700">
       <div className="flex items-center gap-2 mb-6">
         <span className="text-2xl">📝</span>
-        <h3 className="text-xl font-bold text-gray-800">Interactive Quiz</h3>
-        <span className="ml-auto text-sm text-gray-500">
+        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">Interactive Quiz</h3>
+        <span className="ml-auto text-sm text-gray-500 dark:text-gray-300">
           {Object.keys(answers).length} / {questions.length} answered
         </span>
       </div>
@@ -84,20 +84,20 @@ export default function QuizCard({ quiz, topic }: { quiz: any; topic?: string })
               <span className="bg-indigo-100 text-indigo-800 text-sm font-semibold px-2 py-1 rounded-full">
                 Q{index + 1}
               </span>
-              <div className="font-medium text-gray-800 flex-1">{q.question}</div>
+              <div className="font-medium text-gray-800 dark:text-gray-200 flex-1">{q.question}</div>
             </div>
             
             {q.type === 'mcq' && (
               <div className="space-y-2 ml-8">
                 {q.options?.map((opt: string, optIndex: number) => (
-                  <label key={opt} className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 cursor-pointer transition-colors border border-transparent hover:border-indigo-200 dark:hover:border-indigo-400">
+                  <label key={opt} className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-600 cursor-pointer transition-all duration-200 border border-transparent hover:border-indigo-200 dark:hover:border-indigo-400 hover:shadow-sm transform hover:scale-[1.02]">
                     <input 
                       type="radio" 
                       name={q.id} 
                       onChange={() => handleSelect(q.id, opt)}
                       className="w-4 h-4 text-indigo-600 focus:ring-indigo-500"
                     />
-                    <span className="text-gray-700">{opt}</span>
+                    <span className="text-gray-700 dark:text-gray-200">{opt}</span>
                   </label>
                 ))}
               </div>
@@ -120,13 +120,13 @@ export default function QuizCard({ quiz, topic }: { quiz: any; topic?: string })
         <button 
           onClick={handleSubmit} 
           disabled={Object.keys(answers).length === 0}
-          className="flex-1 px-6 py-3 rounded-lg bg-green-600 hover:bg-green-700 disabled:bg-gray-300 text-white font-semibold transition-colors flex items-center justify-center gap-2"
+          className="flex-1 px-6 py-3 rounded-lg bg-green-700 hover:bg-green-800 disabled:bg-blue-300 disabled:hover:bg-blue-300 text-white font-semibold transition-all duration-200 flex items-center justify-center gap-2 hover:shadow-lg transform hover:scale-105"
         >
           🎯 Submit Quiz
         </button>
         <button 
           onClick={() => { setAnswers({}); setShowResult(false); }} 
-          className="px-6 py-3 rounded-lg border-2 border-gray-300 hover:border-gray-400 text-gray-700 font-semibold transition-colors"
+          className="px-6 py-3 rounded-lg border-2 border-gray-300 hover:border-gray-400 text-gray-700 dark:text-gray-200 dark:border-gray-600 dark:hover:border-gray-500 font-semibold transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:shadow-md transform hover:scale-105"
         >
           Reset
         </button>
