@@ -153,7 +153,7 @@ Write specific information about ${topic} in bullet points.`;
     const fallbackResponse = await generateFromPrompt(fallbackPrompt, 0.5);
     
     // Create structured fallback from AI response
-    const sections = fallbackResponse.split(/Section \d+:/i).slice(1);
+    const sections: string[] = fallbackResponse.split(/Section \d+:/i).slice(1);
     
     const fallbackData = {
       sections: sections.slice(0, 5).map((section: string, index: number) => ({
