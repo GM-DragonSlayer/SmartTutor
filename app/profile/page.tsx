@@ -46,8 +46,8 @@ export default function ProfilePage() {
           <div className="max-w-2xl mx-auto">
             {/* Header */}
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Profile Settings</h1>
-              <p className="text-gray-600">Manage your account information and preferences</p>
+              <h1 className="text-3xl font-bold text-white mb-2">Profile Settings</h1>
+              <p className="text-gray-400">Manage your account information and preferences</p>
             </div>
 
             {/* Profile Card */}
@@ -68,7 +68,7 @@ export default function ProfilePage() {
               {/* Form */}
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                  <label className="block text-sm font-medium text-gray-500 mb-2">Full Name</label>
                   {editing ? (
                     <input
                       type="text"
@@ -82,7 +82,7 @@ export default function ProfilePage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                  <label className="block text-sm font-medium text-gray-500 mb-2">Email Address</label>
                   {editing ? (
                     <input
                       type="email"
