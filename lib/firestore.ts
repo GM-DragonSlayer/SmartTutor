@@ -60,6 +60,11 @@ export const saveStudySession = async (session: Omit<StudySession, 'id'>) => {
   const sessionsRef = collection(db, 'studySessions');
   const result = await addDoc(sessionsRef, session);
   console.log('✅ Study session saved with ID:', result.id);
+  
+  // Update user stats
+  console.log('📈 Updating user stats for:', session.userId);
+  await updateUserStats(session.userId);
+  console.log('✅ User stats updated successfully');
   return result;
 };
 
@@ -96,7 +101,7 @@ export const getUserQuizResults = async (userId: string) => {
 };
 
 // Update User Statistics
-const updateUserStats = async (userId: string) => {
+export const updateUserStats = async (userId: string) => {
   console.log('📈 Fetching user data for stats update:', userId);
   const [sessions, results] = await Promise.all([
     getUserStudySessions(userId),
