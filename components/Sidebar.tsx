@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useAuth } from './AuthProvider';
@@ -8,7 +7,6 @@ import { FaBeer, FaBook, FaChartLine, FaHome, FaQuestion, FaUser } from 'react-i
 import { FaBrain } from 'react-icons/fa6';
 
 export default function Sidebar() {
-  const [stats, setStats] = useState({ topics: 12, quizzes: 8, score: 85 });
   const pathname = usePathname();
   const router = useRouter();
   const { user, userProfile, logout } = useAuth();
@@ -62,15 +60,15 @@ export default function Sidebar() {
       <div className="p-4 border-b border-gray-200 dark:border-gray-700">
         <div className="grid grid-cols-3 gap-2 text-center">
           <div className="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-2">
-            <div className="text-lg font-bold text-blue-600 dark:text-blue-400">{stats.topics}</div>
+            <div className="text-lg font-bold text-blue-600 dark:text-blue-400">{userProfile?.totalTopics || 0}</div>
             <div className="text-xs text-gray-600 dark:text-gray-400">Topics</div>
           </div>
           <div className="bg-green-50 dark:bg-green-900/30 rounded-lg p-2">
-            <div className="text-lg font-bold text-green-600 dark:text-green-400">{stats.quizzes}</div>
-            <div className="text-xs text-gray-600 dark:text-gray-400">Quizzes</div>
+            <div className="text-lg font-bold text-green-600 dark:text-green-300">{userProfile?.totalQuizzes || 0}</div>
+            <div className="text-xs text-gray-600 dark:text-gray-300">Quizzes</div>
           </div>
           <div className="bg-purple-50 dark:bg-purple-900/30 rounded-lg p-2">
-            <div className="text-lg font-bold text-purple-600 dark:text-purple-400">{stats.score}%</div>
+            <div className="text-lg font-bold text-purple-600 dark:text-purple-400">{userProfile?.averageScore || 0}%</div>
             <div className="text-xs text-gray-600 dark:text-gray-400">Score</div>
           </div>
         </div>
