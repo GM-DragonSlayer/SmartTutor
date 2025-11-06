@@ -156,7 +156,7 @@ Write specific information about ${topic} in bullet points.`;
     const sections = fallbackResponse.split(/Section \d+:/i).slice(1);
     
     const fallbackData = {
-      sections: sections.slice(0, 5).map((section, index) => ({
+      sections: sections.slice(0, 5).map((section: string, index: number) => ({
         id: `section${index + 1}`,
         title: [
           `Introduction to ${topic}`,
