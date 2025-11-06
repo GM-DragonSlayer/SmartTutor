@@ -7,6 +7,7 @@ import { saveStudySession } from '@/lib/firestore';
 import Sidebar from '@/components/Sidebar';
 import TopicInput from '@/components/TopicInput';
 import DeepSectionCard from '@/components/DeepSectionCard';
+import { FaBrain } from 'react-icons/fa';
 
 export default function DeepLearnPage() {
   const router = useRouter();
@@ -81,8 +82,8 @@ export default function DeepLearnPage() {
         <div className="p-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              🧠 Deep Learn with AI
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 flex gap-2 items-center">
+              <FaBrain /> Deep Learn with AI
             </h1>
             <p className="text-gray-600 dark:text-gray-300">Comprehensive learning with structured sections and detailed quizzes</p>
           </div>
@@ -108,7 +109,7 @@ export default function DeepLearnPage() {
                 {/* Topic Header */}
                 <div className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-6 border-l-4 border-indigo-500">
                   <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
-                    🎯 Deep Learning: <span className="text-indigo-600 dark:text-indigo-400">{currentTopic}</span>
+                    🎯 Deep Learning: <span className="text-emerald-500 dark:text-emerald-500">{currentTopic}</span>
                   </h2>
                   <p className="text-gray-600 dark:text-gray-300 mt-2">
                     {quiz.sections.length} comprehensive sections with individual quizzes
@@ -137,7 +138,7 @@ export default function DeepLearnPage() {
                 <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">
                   Ready for deep learning?
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-400 dark:text-gray-400">
                   Enter a topic to get comprehensive sections with detailed explanations and targeted quizzes.
                 </p>
               </div>

@@ -23,7 +23,7 @@ export default function TopicInput({ onGenerate }: { onGenerate: (topic: string)
   return (
     <div className="bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-6 space-y-4 border border-gray-300 dark:border-gray-700">
       <div className="space-y-2">
-        <label className="block text-sm font-medium text-gray-700">
+        <label className="block text-sm font-medium text-gray-400">
           What would you like to learn today?
         </label>
         <input
@@ -39,7 +39,7 @@ export default function TopicInput({ onGenerate }: { onGenerate: (topic: string)
         <button
           onClick={handleGenerate}
           disabled={!topic.trim() || isLoading}
-          className="flex-1 px-6 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-300 text-white font-semibold transition-colors flex items-center justify-center gap-2"
+          className="flex-1 px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-300 text-white font-semibold transition-colors flex items-center justify-center gap-2"
         >
           {isLoading ? (
             <>
